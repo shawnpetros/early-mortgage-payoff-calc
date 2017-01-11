@@ -1,14 +1,15 @@
 import React from 'react';
+import TextField from 'material-ui/TextField';
 import './form.css';
 
 export default () => (
-  <div>
-    <input type='text' value='55000' placeholder='Base Salary' />
-    <input type='text' value='30' placeholder='Taxes and Deductions Ratio' />
-    <input type='text' value='70' placeholder='Savings Rate' />
-    <input type='text' value='150000' placeholder='Home Cost' />
-    <input type='text' value='15' placeholder='Years in Mortgage' />
-    <input type='text' value='2.8' placeholder='Interest Rate on Mortgage' />
-    <input type='text' value='8' placeholder='Investment Rate' />
-  </div>
+  <form>
+    <TextField hintText='Base Salary' floatingLabelText='Base Salary' />
+    <TextField hintText='Taxes and Deductions Ratio' floatingLabelText='Taxes and Deductions Ratio' />
+    <TextField hintText='Savings Rate' floatingLabelText='Savings Rate' />
+    <TextField hintText='Home Cost' floatingLabelText='Home Cost' />
+    <TextField hintText='Years in Mortgage' floatingLabelText='Years in Mortgage' />
+    <TextField hintText='Interest Rate on Mortgage' floatingLabelText='Interest Rate on Mortgage' />
+    <TextField hintText='Investment Rate' floatingLabelText='Investment Rate' />
+  </form>
 );
