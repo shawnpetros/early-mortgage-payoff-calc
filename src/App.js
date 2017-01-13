@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { validateFields, getMortgagePayment } from './utils/utils';
 import Snackbar from 'material-ui/Snackbar';
-import Form from './components/form/';
+import FormChart from './components/formChart/';
 import logo from './logo.svg';
 import './App.css';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -19,7 +19,8 @@ class App extends Component {
       homeCost: '150000',
       yearsBorrowed: '15',
       mortgageInterest: '2.8',
-      investmentRate: '8'
+      investmentRate: '8',
+      mortgageValues: []
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -43,12 +44,12 @@ class App extends Component {
       <div className='App'>
         <div className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
-          <h2>Welcome to React</h2>
+          <h2>Early Mortgage Payoff Calculator</h2>
         </div>
         <p className='App-intro'>
           Fill in the following
         </p>
-        <Form state={ this.state } handleChange={this.handleChange} />
+        <FormChart state={this.state} handleChange={this.handleChange} />
         <Snackbar
           open={showValidate}
           message='Please verify your entries, a valid calculation cannot be computed.'
