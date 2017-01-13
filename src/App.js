@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { validateFields } from './utils/utils';
+import { validateFields, getMortgagePayment } from './utils/utils';
 import Snackbar from 'material-ui/Snackbar';
 import Form from './components/form/';
 import logo from './logo.svg';
@@ -32,11 +32,12 @@ class App extends Component {
     this.setState({
       [key]: val
     });
-
   }
 
   render() {
     const showValidate = !validateFields(this.state);
+    const mortgagePayment = getMortgagePayment(this.state);
+    console.log(mortgagePayment);
 
     return (
       <div className='App'>
@@ -51,7 +52,7 @@ class App extends Component {
         <Snackbar
           open={showValidate}
           message='Please verify your entries, a valid calculation cannot be computed.'
-          autoHideDuration={10000}
+          autoHideDuration={100000}
         />
       </div>
     );
