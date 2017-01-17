@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { validateFields, getMortgagePayment } from './utils/utils';
+import { validateFields, getMortgagePayment, mortgageComponentsBuilder } from './utils/utils';
 import Snackbar from 'material-ui/Snackbar';
 import FormChart from './components/formChart/';
 import logo from './logo.svg';
@@ -38,7 +38,8 @@ class App extends Component {
   render() {
     const showValidate = !validateFields(this.state);
     const mortgagePayment = getMortgagePayment(this.state);
-    console.log(mortgagePayment);
+    const mortgageComponents = mortgageComponentsBuilder(this.state);
+    console.log(mortgagePayment, showValidate, mortgageComponents);
 
     return (
       <div className='App'>
