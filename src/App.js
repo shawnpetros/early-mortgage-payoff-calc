@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { validateFields, getMortgagePayment, mortgageComponentsBuilder } from './utils/utils';
+import { validateFields, monthlyPayment, mortgageComponentsBuilder } from './utils/utils';
 import Snackbar from 'material-ui/Snackbar';
 import FormChart from './components/formChart/';
 import logo from './logo.svg';
@@ -37,7 +37,7 @@ class App extends Component {
 
   render() {
     const showValidate = !validateFields(this.state);
-    const mortgagePayment = getMortgagePayment(this.state);
+    const mortgagePayment = monthlyPayment(this.state);
     const mortgageComponents = mortgageComponentsBuilder(this.state);
     console.log(mortgagePayment, showValidate, mortgageComponents);
 
@@ -50,7 +50,7 @@ class App extends Component {
         <p className='App-intro'>
           Fill in the following
         </p>
-        <FormChart state={this.state} handleChange={this.handleChange} />
+        <FormChart state={this.state} handleChange={this.handleChange} mortgageComponents={mortgageComponents} />
         <Snackbar
           open={showValidate}
           message='Please verify your entries, a valid calculation cannot be computed.'
