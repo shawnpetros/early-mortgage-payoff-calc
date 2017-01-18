@@ -8,6 +8,7 @@ let config = {
     text: 'Mortgage Paydown',
     x: -20 //center
   },
+  credits: false,
   xAxis: {
     allowDecimals: false,
     title: {
