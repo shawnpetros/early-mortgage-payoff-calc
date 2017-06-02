@@ -1,3 +1,5 @@
 node {
-  sh 'echo from jenkins!'
+  stage('build') {
+    sh 'echo from jenkins!'
+  }
 }
