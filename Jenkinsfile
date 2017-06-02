@@ -1,5 +1,8 @@
 node {
   stage('build') {
-    sh 'echo from jenkins!'
+    sh 'npm run build'
+  }
+  stage('test') {
+    sh 'npm test'
   }
 }
