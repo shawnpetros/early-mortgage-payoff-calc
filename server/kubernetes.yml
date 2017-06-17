@@ -1,0 +1,72 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: empc-server
+  namespace: default
+data:
+  default.json: |-
+    {
+      "message": "hello world!"
+    }
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: empc-server
+  name: empc-server
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: empc-server
+  template:
+    metadata:
+      labels:
+        k8s-app: empc-server
+    spec:
+      containers:
+      - name: arashcuzi/empc-server
+        imagePullPolicy: Always
+        image: empc-server
+        command:
+        - npm
+        args:
+        - run
+        - dev
+        ports:
+        - containerPort: 8080
+        - containerPort: 5858
+        volumeMounts:
+        - name: code
+          mountPath: /app
+        - name: configuration
+          mountPath: /app/config
+      volumes:
+      - name: code
+        hostPath:
+          path: /Users/pet7915/repos/personal/early-mortgage-payoff-calc
+      - name: configuration
+        configMap:
+          name: empc-server
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: empc-server
+  namespace: default
+  labels:
+    app: empc-server
+spec:
+  selector:
+    k8s-app: empc-server
+  ports:
+  - name: app-port
+    port: 8080
+    nodePort: 30005
+  - name: app-port
+    port: 5858
+    nodePort: 30006
+  type: NodePort
