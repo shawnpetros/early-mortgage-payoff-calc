@@ -4,7 +4,7 @@
     {
       "type": "node",
       "request": "attach",
-      "address": "localhost",
+      "address": "192.168.99.100",
       "name": "Attach",
       "port": 30006
     }
