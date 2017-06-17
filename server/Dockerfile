@@ -1,4 +1,5 @@
 FROM node:6.11-alpine
-WORKDIR /app
-COPY . .
-RUN npm install
+WORKDIR /src
+COPY ./ /src/.
+RUN npm install --silent -g yarn \
+  && yarn

@@ -34,20 +34,19 @@ spec:
         command:
         - npm
         args:
-        - run
-        - dev
+        - start
         ports:
         - containerPort: 8080
         - containerPort: 5858
         volumeMounts:
         - name: code
-          mountPath: /app
+          mountPath: /src
         - name: configuration
-          mountPath: /app/config
+          mountPath: /src/config
       volumes:
       - name: code
         hostPath:
-          path: /Users/pet7915/repos/personal/early-mortgage-payoff-calc
+          path: /Users/pet7915/repos/personal/early-mortgage-payoff-calc/server
       - name: configuration
         configMap:
           name: empc-server
