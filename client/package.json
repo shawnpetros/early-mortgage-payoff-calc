@@ -6,11 +6,9 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
-    "decimal.js": "^7.1.1",
-    "financejs": "^4.0.1",
+    "bignumber": "^1.1.0",
     "highcharts": "^5.0.6",
     "material-ui": "^0.16.6",
-    "mathjs": "^3.8.1",
     "mocha": "^3.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

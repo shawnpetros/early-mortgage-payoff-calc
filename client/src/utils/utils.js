@@ -1,7 +1,6 @@
-import Finance from 'financejs';
-import Decimal from 'decimal.js';
+import BigNumber from 'bignumber';
 
-var finance = new Finance();
+console.log(BigNumber);
 
 export const validateFields = (obj) => {
   let arr = Object.keys(obj);
