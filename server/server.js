@@ -1,6 +1,9 @@
+import { FV } from './utils';
+
 const express = require('express');
 const config = require('config');
 const app = express();
+
 
 app.get('/', (req, res) => {
   res.json(config.get('message'));
@@ -8,6 +11,7 @@ app.get('/', (req, res) => {
 
 app.get('/hello', (req, res) => {
   debugger;
+  const thing = FV(8, 30, 1000, 10000, 0, true);
   res.send('this is cool!');
 });
 

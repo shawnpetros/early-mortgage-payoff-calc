@@ -5,19 +5,23 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --legacy-watch --debug=5858 ./server.js",
-    "test": "babel-tape-runner **/spec.js"
+    "test": "babel-tape-runner **/spec.js | faucet",
+    "test-watch": "tape-watch -r babel-register **/spec.js -c -p faucet"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bignumber.js": "^4.0.2",
     "config": "^1.26.1",
     "express": "^4.15.3"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-tape-runner": "^2.0.1",
+    "faucet": "^0.0.1",
     "nodemon": "^1.11.0",
-    "tape": "^4.6.3"
+    "tape": "^4.6.3",
+    "tape-watch": "^2.3.0"
   }
 }
