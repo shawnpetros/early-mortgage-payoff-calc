@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --legacy-watch --debug=5858 ./server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "babel-tape-runner **/spec.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,10 @@
     "express": "^4.15.3"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "babel-cli": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-tape-runner": "^2.0.1",
+    "nodemon": "^1.11.0",
+    "tape": "^4.6.3"
   }
 }
