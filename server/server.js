@@ -7,6 +7,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/hello', (req, res) => {
+  debugger;
   res.send('this is cool!');
 });
 
